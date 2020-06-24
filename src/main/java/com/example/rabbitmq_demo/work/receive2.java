@@ -37,4 +37,5 @@ public class receive2 {
         boolean autoAck=true;
         channel.basicConsume(QUEUE_NAME,autoAck,consumer);
     }
+
 }
