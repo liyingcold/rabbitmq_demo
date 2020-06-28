@@ -18,7 +18,7 @@ public class Send {
         channel.queueDeclare(QUEUE_NAME,false,false,false,null);
 
         String msg="hello simple !";
-
+//第一个参数为空（匿名转发，交换机名字为“”）
         channel.basicPublish("",QUEUE_NAME,null,msg.getBytes());
 
         System.out.println("------send msg");
