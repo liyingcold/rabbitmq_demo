@@ -1,0 +1,40 @@
+server:
+    port: 8081
+#rabbitmq
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5627
+    username: user_mmr
+    password: rabbit123
+#虚拟主机
+    virtual-host: /vhost_mmr
+    connection-timeout: 15000
+#确认消息模式
+    publisher-confirms: true
+#路由失败回调
+    publisher-returns: true
+#设置为true消息路由失败通知监听者（false会将消息丢弃）
+    template:
+      mandatory: true
+#每次从rabbitmq获取的消息数量
+#/spring.rabbitmq.listener.simple.prefetch=1
+#spring.rabbitmq.listener.simple.default-requeue-rejected=false
+#每个队列启动的消费者数量
+#spring.rabbitmq.listener.simple.concurrency=1
+#每个队列最大的消费者数量
+#spring.rabbitmq.listener.simple.max-concurrency=1
+#签收模式为手动签收-那么需要在代码中手动ack
+#spring.rabbitmq.listener.simple.acknowledge-mode=manual
+#队列定义，正常业务队列
+app:
+  rabbitmq:
+    queue:
+      user: normal-queue
+#死信队列
+#app.rabbitmq.user-data-letter=user-dead-letter-queue
+#交换机定义,正常业务交换机
+    exchange:
+      user: normal-exchange
+#死信交换机
+#app.rabbitmq.exchange.common-dead-letter=common-ded-letter-exchange
