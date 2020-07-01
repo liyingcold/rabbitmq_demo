@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySource;
 /**
  * 队列与交换机定义与绑定
  */
-@Slf4j
+
 @Configuration
 @PropertySource("classpath:application.yml")
 public class RabbitDeclare {
@@ -25,6 +25,7 @@ public class RabbitDeclare {
 
     @Bean
     public Queue userQueue(@Value("${app.rabbitmq.queue.user}")String userQueueName){
+
         return QueueBuilder.durable(userQueueName)
 //                声明该队列的死信消息发送到的 交换机（队列添加这个参数后会自动与该交换机绑定，并设置路由键，不需要手动设置）
 //                .withArgument("x-dead-letter-exchange",commonDeadLetterExchange)
