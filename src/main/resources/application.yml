@@ -4,7 +4,7 @@ server:
 spring:
   rabbitmq:
     host: 127.0.0.1
-    port: 5627
+    port: 5672
     username: user_mmr
     password: rabbit123
 #虚拟主机
@@ -18,14 +18,16 @@ spring:
     template:
       mandatory: true
 #每次从rabbitmq获取的消息数量
-#/spring.rabbitmq.listener.simple.prefetch=1
-#spring.rabbitmq.listener.simple.default-requeue-rejected=false
+    listener:
+      simple:
+        prefetch: 1
+        default-requeue-rejected: false
 #每个队列启动的消费者数量
-#spring.rabbitmq.listener.simple.concurrency=1
+        concurrency: 1
 #每个队列最大的消费者数量
-#spring.rabbitmq.listener.simple.max-concurrency=1
+        max-concurrency: 1
 #签收模式为手动签收-那么需要在代码中手动ack
-#spring.rabbitmq.listener.simple.acknowledge-mode=manual
+        acknowledge-mode: manual
 #队列定义，正常业务队列
 app:
   rabbitmq:

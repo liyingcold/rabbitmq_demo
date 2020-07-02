@@ -1,17 +1,15 @@
 package com.example.rabbitmq_demo.util;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class TxtUtil {
-    public static void main(String[] args) {
-        String m=readFile("C:\\Users\\chenming\\Desktop\\data.txt");
-        txtJsonUtil(m);
-        System.out.println(m);
-    }
+//    public static void main(String[] args) {
+//        String m=readFile("C:\\Users\\chenming\\Desktop\\data.txt");
+//        txtMapUtil(m);
+//        System.out.println(m);
+//    }
 
     public static String readFile(String path){
         BufferedReader reader=null;
@@ -44,8 +42,8 @@ public class TxtUtil {
         return str;
     }
 
-    public static Map<String,Object> txtJsonUtil(String str){
-        Map<String ,Object> map=new HashMap<>();
+    public static Map<Object,Object> txtMapUtil(String str){
+        Map<Object ,Object> map=new HashMap<>();
         String[] s=str.split("=|,");
         for (int i = 0; i < s.length; i++) {
             map.put(s[i],s[i+1]);
