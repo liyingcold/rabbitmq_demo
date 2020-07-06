@@ -21,6 +21,7 @@ public class Consumer {
             System.out.println(message);
             channel.basicNack(message.getMessageProperties().getDeliveryTag(),false,false);
             System.out.println(message.getMessageProperties().getReceivedRoutingKey());
+//            在这里消费消息时，可以调用service 层里面的方法
         } catch (IOException e) {
             System.out.println("==========失败");
             e.printStackTrace();
